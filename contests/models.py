@@ -4,7 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from accounts.models import CustomUser
 
 from .utils import generate_code
-
+from django.utils import timezone 
 from datetime import datetime
 
 # Create your models here.
@@ -13,7 +13,7 @@ class Contest(models.Model):
     description = models.TextField()
     organizer = models.ForeignKey(CustomUser, models.CASCADE)
     max_contestants = models.PositiveIntegerField()
-    date = models.DateTimeField(default=datetime.now())
+    date = models.DateTimeField(default=timezone.now)
     contest_code = models.CharField(
         _("contest code"), max_length=12, default=generate_code
     )
