@@ -2,27 +2,26 @@
 {% block title %} Login Now {% endblock %}
 
 {% block body %}
-    <div class="container">
-
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div id="login">
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
+                    <div id="login-column" class="col-md-8">
                         <div id="login-box" class="col-md-12">
+                            <!-- Image added here -->
+                            <div class="text-center">
+                                <img src="https://preview.redd.it/t7b5j2cqpce21.png?width=640&crop=smart&auto=webp&s=88c4ab909a8d5b9887c2c7980823677a3b72d523" alt="Login Image" class="login-image">
+                            </div>
                             <form id="login-form" class="form" action="" method="post">
                                 {% csrf_token %}
                                 <h3 class="text-center text-info">Login</h3>
                                 <div class="form-group">
                                     <label for="username" class="text-info">Email:</label><br>
-                                    
-                                        {{ form.email }}
-                                    
+                                    {{ form.email }}
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="text-info">Password:</label><br>
-                        
-                                        {{ form.password }}
-
+                                    {{ form.password }}
                                 </div>
                                 <br />
                                 <div class="form-group">
@@ -39,30 +38,49 @@
         </div>
     </div>
 
-
     <!--STYLE SHEET STARTS HERE -->
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: url('https://cdn.pixabay.com/photo/2017/03/19/18/00/the-traffic-light-2157162_960_720.jpg');
-            height: 100vh;
+            background: url('https://preview.redd.it/t7b5j2cqpce21.png?width=640&crop=smart&auto=webp&s=88c4ab909a8d5b9887c2c7980823677a3b72d523');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
         }
-        #login .container #login-row #login-column #login-box {
-        margin-top: 120px;
-        max-width: 500px;
-        height: 320px;
-        border: 1px solid #9C9C9C;
-        background-color: #EAEAEA;
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        #login .container #login-row #login-column #login-box #login-form {
-        padding: 20px;
-        }
-        #login .container #login-row #login-column #login-box #login-form #register-link {
-        margin-top: -85px;
-        }
-        #register-link{
+
+        #login-box {
+            margin-top: 0;
+            max-width: 900px;
             padding: 50px;
+            border: 10px solid #011c3a;
+            background-color: #023145;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        #login-form {
+            padding: 20px;
+        }
+
+        .login-image {
+            margin-bottom: 20px;
+            max-width: 100%;
+            /* Removes the fixed size and uses actual size */
+            
+           
+        }
+
+        #register-link {
+            padding: 10px;
             float: right;
             text-decoration: none;
         }

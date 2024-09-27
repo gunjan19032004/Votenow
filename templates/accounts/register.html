@@ -2,7 +2,7 @@
 {% block title %} Register {% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
         {% if messages %}
             <div class=''>
                 {% for message in messages %}
@@ -16,40 +16,37 @@
         <div id="login">
             <div class="container">
                 <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
+                    <div id="login-column" class="col-md-8">
                         <div id="login-box" class="col-md-12">
+                            <div class="text-center">
+                                <!-- Add a logo or registration image if needed -->
+                                <img src="https://e0.pxfuel.com/wallpapers/522/814/desktop-wallpaper-vector-landscape-%E2%80%A2-for-you-for-mobile.jpg" alt="Register Image" class="login-image">
+                            </div>
                             <form id="login-form" class="form" action="" method="post">
-                                
+                                {% csrf_token %}
                                 <h3 class="text-center text-info">Register</h3>
+                                
                                 <div class="form-group">
                                     <label for="username" class="text-info">Name:</label><br>
-                                    
-                                        {{ user_form.name }}
-                                    
+                                    {{ user_form.name }}
                                 </div>
                                 <div class="form-group">
                                     <label for="email" class="text-info">Email:</label><br>
-                                    
-                                        {{ user_form.email }}
-                                    
+                                    {{ user_form.email }}
                                 </div>
                                 <div class="form-group">
                                     <label for="password" class="text-info">Password:</label><br>
-                                    
-                                        {{ user_form.password}}
-                                    
+                                    {{ user_form.password }}
                                 </div>
                                 <div class="form-group">
                                     <label for="confirm-password" class="text-info">Confirm Password:</label><br>
-                                    
-                                        {{ user_form.password_}}
-                                    
+                                    {{ user_form.password_ }}
                                 </div>
                                 <br />
-                                {% csrf_token %}
                                 <div class="form-group">
                                     <input type="submit" name="submit" class="btn btn-info btn-md" value="Join Now">
                                 </div>
+                                
                                 <div id="register-link" class="text-right">
                                     <p class="text-muted">Already have an account? <a href="{% url 'account:login' %}" class="text-info">Login</a></p>
                                 </div>
@@ -61,33 +58,58 @@
         </div>
     </div>
 
-
     <!--STYLE SHEET STARTS HERE -->
     <style>
         body {
             margin: 0;
             padding: 0;
-            background: url('https://cdn.pixabay.com/photo/2014/07/01/12/35/observation-deck-381232_960_720.jpg');
-            height: 105vh;
+            background: url('https://e0.pxfuel.com/wallpapers/522/814/desktop-wallpaper-vector-landscape-%E2%80%A2-for-you-for-mobile.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
         }
-        #login .container #login-row #login-column #login-box {
-        margin-top: 120px;
-        max-width: 500px;
-        height: 500px;
-        border: 1px solid #9C9C9C;
-        background-color: #EAEAEA;
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        #login .container #login-row #login-column #login-box #login-form {
-        padding: 20px;
+
+        #login-box {
+            margin-top: 0;
+            max-width: 900px;
+            padding: 20px;
+            border: 10px solid #011c3a;
+            background-color: #023145;
+            
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
         }
-        #login .container #login-row #login-column #login-box #login-form #register-link {
-        margin-top: -85px;
+
+        #login-form {
+            padding: 20px;
         }
-        #register-link{
-            padding: 40px;
+
+        .login-image {
+            margin-bottom: 20px;
+            max-width: 100%;
+            
+        }
+
+        #register-link {
+            padding: 10px;
             float: right;
             text-decoration: none;
-            margin-left: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-md {
+            width: 100%;
         }
     </style>
 {% endblock %}
